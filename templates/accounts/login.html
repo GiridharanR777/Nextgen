@@ -6,14 +6,17 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <main class="auth-card">
-        <h1>Login</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Login</button>
-        </form>
-        <p>New user? <a href="/register">Register</a></p>
-    </main>
+    <div class="auth-shell">
+        <main class="auth-card">
+            <h1>Welcome Back</h1>
+            <p>Sign in to continue sharing and discovering resources.</p>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+            </form>
+            <p>New user? <a href="/register">Register</a></p>
+        </main>
+    </div>
 </body>
 </html>

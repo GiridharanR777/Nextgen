@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from pathlib import Path
 
 from subjects.models import Subject
 
@@ -27,6 +28,13 @@ class Resource(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def file_format(self):
+        if not self.file:
+            return "N/A"
+        suffix = Path(self.file.name).suffix
+        return suffix[1:].upper() if suffix else "N/A"
+
 
 class Rating(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="ratings")
@@ -48,5 +56,3 @@ class DownloadEvent(models.Model):
 
     def __str__(self):
         return f"{self.user.email} downloaded {self.resource.title}"
-
-# Create your models here.

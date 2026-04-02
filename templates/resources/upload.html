@@ -4,6 +4,7 @@
 {% if request_id %}
     <p>Uploading for request #{{ request_id }}. This will mark it fulfilled.</p>
 {% endif %}
+<p>Any file format is supported.</p>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}

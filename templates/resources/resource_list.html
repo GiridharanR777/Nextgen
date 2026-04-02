@@ -31,17 +31,18 @@
 </form>
 
 <table>
-    <tr><th>Title</th><th>Subject</th><th>Type</th><th>Rating</th><th>Downloads</th></tr>
+    <tr><th>Title</th><th>Subject</th><th>Type</th><th>Format</th><th>Rating</th><th>Downloads</th></tr>
     {% for resource in resources %}
         <tr>
             <td><a href="/resource/{{ resource.id }}">{{ resource.title }}</a></td>
             <td>{{ resource.subject.name }}</td>
             <td>{{ resource.get_type_display }}</td>
+            <td>{{ resource.file_format }}</td>
             <td>{{ resource.rating }}</td>
             <td>{{ resource.downloads }}</td>
         </tr>
     {% empty %}
-        <tr><td colspan="5">No resources found.</td></tr>
+        <tr><td colspan="6">No resources found.</td></tr>
     {% endfor %}
 </table>
 {% endblock %}
