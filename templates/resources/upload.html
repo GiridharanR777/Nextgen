@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Upload Resource</h1>
+{% if request_id %}
+    <p>Uploading for request #{{ request_id }}. This will mark it fulfilled.</p>
+{% endif %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}

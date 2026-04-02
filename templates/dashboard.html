@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+<div class="stats">
+    <div class="card"><strong>{{ my_uploads }}</strong><span>My Uploads</span></div>
+    <div class="card"><strong>{{ total_resources }}</strong><span>Total Resources</span></div>
+    <div class="card"><strong>{{ open_requests }}</strong><span>Open Requests</span></div>
+</div>
+
+<h2>Recent Uploads</h2>
+<ul>
+    {% for resource in recent_uploads %}
+        <li>
+            <a href="/resource/{{ resource.id }}">{{ resource.title }}</a>
+            ({{ resource.subject.name }} - {{ resource.get_type_display }})
+        </li>
+    {% empty %}
+        <li>No resources uploaded yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

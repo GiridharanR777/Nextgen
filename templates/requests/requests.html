@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Resource Requests</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Post Request</button>
+</form>
+
+<h2>All Requests</h2>
+<ul>
+    {% for req in requests_list %}
+        <li>
+            <strong>{{ req.title }}</strong> - {{ req.description }}
+            <br>
+            By {{ req.created_by.name }} |
+            Status: {% if req.fulfilled %}Fulfilled{% else %}Open{% endif %}
+            {% if not req.fulfilled %}
+                | <a href="/upload?request_id={{ req.id }}">Upload to Fulfill</a>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>No requests yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ resource.title }}</h1>
+<p><strong>Subject:</strong> {{ resource.subject.name }}</p>
+<p><strong>Department:</strong> {{ resource.subject.department }}</p>
+<p><strong>Semester:</strong> {{ resource.subject.semester }}</p>
+<p><strong>Uploaded by:</strong> {{ resource.uploaded_by.name }}</p>
+<p><strong>Average Rating:</strong> {{ resource.rating }}</p>
+<p><strong>Downloads:</strong> {{ resource.downloads }}</p>
+<a class="button" href="/resource/{{ resource.id }}/download">Download PDF</a>
+
+<h2>Rate this Resource</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Rating</button>
+</form>
+{% endblock %}

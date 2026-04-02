@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    color: #222;
+}
+
+nav {
+    background: #0b2f57;
+    padding: 12px 20px;
+}
+
+nav a {
+    color: #fff;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+main {
+    max-width: 1000px;
+    margin: 24px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.auth-card {
+    max-width: 420px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.stats {
+    display: flex;
+    gap: 12px;
+}
+
+.card {
+    background: #eef4fb;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.card strong {
+    display: block;
+    font-size: 24px;
+}
+
+.filter-form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.message {
+    background: #e8f5e9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
