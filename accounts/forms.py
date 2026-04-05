@@ -14,7 +14,7 @@ class RegisterForm(forms.ModelForm):
 
     def clean_email(self):
         email = self.cleaned_data["email"].strip().lower()
-        if not email.endswith("@yourcollege.edu"):
+        if not email.endswith("@gmail.com"):
             raise forms.ValidationError("Use your college email (@yourcollege.edu).")
         return email
 
