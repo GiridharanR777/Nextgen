@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from accounts.views import dashboard_view, login_view, logout_view, register_view
+from accounts.views import dashboard_view, login_view, logout_view, register_view,verify_otp_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,7 @@ urlpatterns = [
     path("register", register_view, name="register"),
     path("logout", logout_view, name="logout"),
     path("dashboard", dashboard_view, name="dashboard"),
+    path("verify-otp", verify_otp_view, name="verify_otp"),
     path("", include("resources.urls")),
     path("", include("leaderboard.urls")),
     path("", include("resource_requests.urls")),
